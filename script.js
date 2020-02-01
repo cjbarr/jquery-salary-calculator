@@ -8,8 +8,35 @@ function onReady(){
     //add an employee with function on click of button
     $('#submitButton').on('click', addEmployee);
     $('#monthlyOut').append(monthlyCost);
+    $('#employeeDisplay').on('click', '.deleteButton', deleteEmployee);
     
 }
+
+function deleteEmployee(){
+    console.log('in delete Employee');
+    let el = ($(this).parent()).parent();
+    el.remove();
+
+
+
+    //lebuttonelement.parent
+    // Element.tparent
+    // remeove
+
+    // let el = $(this).parent();
+    // console.log(el)
+    // let string = el[0].innerText;
+    // let index = string.lastIndexOf(' ');
+    // string = string.substring(0,index);
+    // console.log(string);
+    // for(let i=0;i<employees.length;i++){
+    //     //id number because no chance of repeats unlike name
+    //     if (employees[i].idNumber==string){
+    //         employees.splice(i,1);
+    //     }//end if
+    // }//end for loop
+    employeeDisplay();
+}//end deleteEmployee
 
 function addEmployee(){
 console.log("in addEmployee")
@@ -37,7 +64,15 @@ function employeeDisplay(){
     let el = $('#employeeDisplay');
     el.empty();
     for (i = 0; i < employees.length; i++){  
-    el.append(`<li>First: ${employees[i].firstName} Last: ${employees[i].lastName} ID Number: ${employees[i].idNumber} Title: "${employees[i].title}" Salary: ${employees[i].salary} </li>`)
+    el.append(`
+    <tr>
+    <td>${employees[i].firstName}</td>
+    <td>${employees[i].lastName}</td>
+    <td>${employees[i].idNumber}</td>
+    <td>"${employees[i].title}"</td>
+    <td>${employees[i].salary} </td>
+    <td> <button class="deleteButton">Delete</button></td>
+    </tr>`)
 
 }
 }
