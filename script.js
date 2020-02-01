@@ -1,15 +1,45 @@
 $(document).ready(onReady);
 
-let employees = [];
+let employees = [
+//   test employees to save retyping  
+//   {
+//     firstName:'John',
+//     lastName:'Snow',
+//     idNumber: '#1',
+//     title: 'king',
+//     salary: 12
+// },
+// {
+//         firstName:"Dany",
+//             lastName: 'T',
+//         idNumber:'#2',
+//             title:'Queen',
+//         salary:60
+// },
+// {
+//         firstName:'Rickon',
+//             lastName:'Stark',
+//         idNumber:'#3',
+//             title:'dead',
+//         salary:120
+// },
+// {
+//         firstName:'khal',
+//             lastName:'drogo',
+//         idNumber:'#4',
+//             title:'dothraki',
+//         salary:1200
+// }
+]
 monthlyCost = 0;
 //created array of employees
 function onReady(){
     console.log('working JS/JQ');
+    employeeDisplay();
+    cost();
     //add an employee with function on click of button
     $('#submitButton').on('click', addEmployee);
-    $('#monthlyOut').append(monthlyCost);
     $('#employeeDisplay').on('click', '.item', deleteEmployee);
-    // $('#employeeDisplay').on('click','item', removeEmployee);
 }
 
 function deleteEmployee(){
@@ -21,10 +51,11 @@ function deleteEmployee(){
 
     for(i=0;i<employees.length;i++){
         if (search.includes(employees[i].idNumber)){
-            employees.splice(i,1)
-        }//end removal
+            employees.splice(i,1);
+     }//end removal
     }//end for loop
-cost();
+    cost();
+    console.log(employees);
 }//end deleteEmployee
 
 
@@ -35,7 +66,7 @@ console.log("in addEmployee")
 //grab employee values as a new object
     let newObject = { firstName: $('#firstNameIn').val(),
         lastName: $('#lastNameIn').val(),
-        idNumber: $('#idNumberIn').val(),
+        idNumber: '#' + $('#idNumberIn').val(),
         title: $('#titleIn').val(),
         salary: $('#salaryIn').val()
     }
@@ -78,7 +109,7 @@ function cost(){
 
     }
     monthlyCost = temp;
-    out.append(monthlyCost);
+    out.text(monthlyCost);
     console.log('monthly cost is:',monthlyCost);
     turnRed();
 }
