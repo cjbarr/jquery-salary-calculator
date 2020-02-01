@@ -8,17 +8,16 @@ function onReady(){
     //add an employee with function on click of button
     $('#submitButton').on('click', addEmployee);
     $('#monthlyOut').append(monthlyCost);
-    $('#employeeDisplay').on('click', '.deleteButton', deleteEmployee);
+    $('#employeeDisplay').on('click', '.item', deleteEmployee);
     
 }
 
 function deleteEmployee(){
     console.log('in delete Employee');
-    let el = ($(this).parent()).parent();
-    el.remove();
-
-
-
+    let el = $(this).parent();
+    console.log(el);
+    el.remove()
+    
     //lebuttonelement.parent
     // Element.tparent
     // remeove
@@ -35,7 +34,7 @@ function deleteEmployee(){
     //         employees.splice(i,1);
     //     }//end if
     // }//end for loop
-    employeeDisplay();
+   
 }//end deleteEmployee
 
 function addEmployee(){
@@ -71,7 +70,7 @@ function employeeDisplay(){
     <td>${employees[i].idNumber}</td>
     <td>"${employees[i].title}"</td>
     <td>${employees[i].salary} </td>
-    <td> <button class="deleteButton">Delete</button></td>
+    <td class="item"><button class="deleteButton">Delete</button></td>
     </tr>`)
 
 }
