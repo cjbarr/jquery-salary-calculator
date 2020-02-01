@@ -43,12 +43,21 @@ function employeeDisplay(){
 }
 
 function cost(){
+    let temp = 0
     let el = $('#monthlyOut')
     el.empty();
     for(i=0;i<employees.length;i++){
-        monthlyCost += (employees[i].salary / 12)
+       temp += (employees[i].salary / 12)
 
     }
+    monthlyCost = temp;
     el.append(monthlyCost);
-    console.log('monthly cost is:',monthlyCost)
+    console.log('monthly cost is:',monthlyCost);
+    turnRed();
+}
+
+function turnRed(){
+    if (monthlyCost > 20000){
+$('#monthlyOut').addClass("red")
+    }
 }
