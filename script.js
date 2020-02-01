@@ -24,7 +24,7 @@ function deleteEmployee(){
             employees.splice(i,1)
         }//end removal
     }//end for loop
-
+cost();
 }//end deleteEmployee
 
 
