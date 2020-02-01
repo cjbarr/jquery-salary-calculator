@@ -71,14 +71,14 @@ function employeeDisplay(){
 
 function cost(){
     let temp = 0
-    let el = $('#monthlyOut')
-    el.empty();
+    let out = $('#monthlyOut')
+    out.empty();
     for(i=0;i<employees.length;i++){
        temp += (employees[i].salary / 12)
 
     }
     monthlyCost = temp;
-    el.append(monthlyCost);
+    out.append(monthlyCost);
     console.log('monthly cost is:',monthlyCost);
     turnRed();
 }
