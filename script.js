@@ -87,4 +87,7 @@ function turnRed(){
     if (monthlyCost > 20000){
 $('#monthlyOut').addClass("red")
     }
+    if (monthlyCost<=20000){
+        $('#monthlyOut').removeClass("red")
+    }
 }
