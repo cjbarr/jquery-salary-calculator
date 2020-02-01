@@ -9,33 +9,26 @@ function onReady(){
     $('#submitButton').on('click', addEmployee);
     $('#monthlyOut').append(monthlyCost);
     $('#employeeDisplay').on('click', '.item', deleteEmployee);
-    
+    // $('#employeeDisplay').on('click','item', removeEmployee);
 }
 
 function deleteEmployee(){
     console.log('in delete Employee');
     let el = $(this).parent();
-    console.log(el);
-    el.remove()
-    
-    //lebuttonelement.parent
-    // Element.tparent
-    // remeove
+    let search = el.text();
+    console.log(el.text());
+    el.remove();
 
-    // let el = $(this).parent();
-    // console.log(el)
-    // let string = el[0].innerText;
-    // let index = string.lastIndexOf(' ');
-    // string = string.substring(0,index);
-    // console.log(string);
-    // for(let i=0;i<employees.length;i++){
-    //     //id number because no chance of repeats unlike name
-    //     if (employees[i].idNumber==string){
-    //         employees.splice(i,1);
-    //     }//end if
-    // }//end for loop
-   
+    for(i=0;i<employees.length;i++){
+        if (search.includes(employees[i].idNumber)){
+            employees.splice(i,1)
+        }//end removal
+    }//end for loop
+
 }//end deleteEmployee
+
+
+
 
 function addEmployee(){
 console.log("in addEmployee")
